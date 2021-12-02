@@ -1,0 +1,16 @@
+{
+  "name": "dm-decision-tree",
+  "version": "1.0.0",
+  "description": "Data Mining Decision Tree Generator",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Oswaldo Valadez",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
