@@ -6,7 +6,18 @@ const inputs = ["genre", "tag", "beaten", "dropped", "playing"];
 
 const disc = { beaten: true, dropped: true, playing: true };
 
-const cond = `null`;
+const cond = `"beaten <= 36
+  AND playing <= 1
+  AND dropped > 5
+  AND playing > 0
+  AND dropped <= 6
+  AND beaten > 4
+  AND (
+    tag = ''
+    OR tag = 'Online'
+  )
+  AND genre != 'Other'
+"`;
 
 const output = "classification";
 
