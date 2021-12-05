@@ -1,2 +1,2 @@
-# dm-decision-tree
-Data Mining Decision Tree Generator
+# expressjs-dashboard-setup
+Fast dashboard project setup for nodejs, expressjs, ejs, admin lte template and much more

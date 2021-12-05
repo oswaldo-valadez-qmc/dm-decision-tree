@@ -8,11 +8,11 @@ CREATE PROCEDURE 1R(
     input_value int,
     output_attr varchar(50),
     acc_enough float,
-    cond varchar(200)
+    cond varchar(1024)
 )
 BEGIN
     DECLARE input_attr_alias varchar(50) DEFAULT input_attr;
-    DECLARE full_cond varchar(220) DEFAULT '';
+    DECLARE full_cond varchar(1044) DEFAULT '';
 
     IF input_value IS NOT NULL THEN
       SET input_attr_alias = CONCAT('lte', input_value);
@@ -85,10 +85,10 @@ CREATE PROCEDURE discretize_range(
     input_attr varchar(50),
     output_attr varchar(50),
     acc_enough float,
-    cond varchar(200)
+    cond varchar(1024)
 )
 BEGIN
-    DECLARE full_cond varchar(220) DEFAULT '';
+    DECLARE full_cond varchar(1044) DEFAULT '';
     IF cond IS NOT NULL THEN
       SET full_cond = CONCAT('WHERE ', cond);
     END IF;

@@ -1,0 +1,96 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>{{%= type %}}</h1>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="container-fluid">
+    {{% items.forEach((row, i) => { %}}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary card-outline collapsed-card">
+            <div
+              class="card-header"
+            >
+              <h3 class="card-title">
+                {{%= row.name %}}
+              </h3>
+              <div class="card-tools">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  data-card-widget="collapse"
+                  title="Collapse"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-body">
+              <table
+                class="table table-bordered table-striped"
+                aria-describedby="dataTableConfig_info"
+              >
+                <thead>
+                  <tr role="row">
+                    {{% if (type == "1R") { %}}
+                      {{% if (row.uniq != "null") { %}}
+                      <td>{{%= "lte"+row.uniq %}}</td>
+                      {{% } else { %}}
+                        <th>{{%= row.name %}}</th>
+                      {{% } %}}
+                      <th>classification</th>
+                      <th>match_rows</th>
+                      <th>total_rows</th>
+                      <th>prob</th>
+                      <th>overall_acc</th>
+                      <th>N</th>
+                      <th>goodness</th>
+                    {{% } else { %}}
+                      <th>uniq</th>
+                      <th>overall_acc</th>
+                      <th>N</th>
+                      <th>goodness</th>
+                    {{% } %}}
+                  </tr>
+                </thead>
+                <tbody>
+                  {{% row.list.forEach((rowj, i) => { %}}
+                  <tr class="odd">
+                    {{% if (type == "1R") { %}}
+                      {{% if (row.uniq != "null") { %}}
+                        <td>{{%= rowj["lte"+row.uniq] %}}</td>
+                      {{% } else { %}}
+                        <td>{{%= rowj[row.name] %}}</td>
+                      {{% } %}}
+                      <td>{{%= rowj.classification %}}</td>
+                      <td>{{%= rowj.match_rows %}}</td>
+                      <td>{{%= rowj.total_rows %}}</td>
+                      <td>{{%= rowj.prob %}}</td>
+                      <td>{{%= rowj.overall_acc %}}</td>
+                      <td>{{%= rowj.N %}}</td>
+                      <td>{{%= rowj.goodness %}}</td>
+                    {{% } else { %}}
+                      <td>{{%= rowj.uniq %}}</td>
+                      <td>{{%= rowj.overall_acc %}}</td>
+                      <td>{{%= rowj.N %}}</td>
+                      <td>{{%= rowj.goodness %}}</td>
+                    {{% } %}}
+                  </tr>
+                  {{% }) %}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{% }) %}}
+    
+  </div>
+</section>
