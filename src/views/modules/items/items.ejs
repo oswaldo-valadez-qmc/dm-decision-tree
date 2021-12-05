@@ -41,7 +41,7 @@
                   <tr role="row">
                     {{% if (type == "1R") { %}}
                       {{% if (row.uniq != "null") { %}}
-                      <td>{{%= "lte"+row.uniq %}}</td>
+                        <th>{{%= "lte"+row.uniq %}}</th>
                       {{% } else { %}}
                         <th>{{%= row.name %}}</th>
                       {{% } %}}
@@ -65,7 +65,13 @@
                   <tr class="odd">
                     {{% if (type == "1R") { %}}
                       {{% if (row.uniq != "null") { %}}
-                        <td>{{%= rowj["lte"+row.uniq] %}}</td>
+                        <td>
+                          {{% if (rowj["lte"+row.uniq]) { %}}
+                          <=
+                          {{% } else { %}}
+                          >
+                          {{% } %}}
+                        </td>
                       {{% } else { %}}
                         <td>{{%= rowj[row.name] %}}</td>
                       {{% } %}}
